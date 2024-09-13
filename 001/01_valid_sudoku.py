@@ -2,6 +2,7 @@
 # Problem Number    : 36
 # Problem Name      : Valid Sudoku
 # Problem Topics    : Array, Hashtable, Matrix
+# Problem URL       : https://leetcode.com/problems/valid-sudoku/description/
 
 
 board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
