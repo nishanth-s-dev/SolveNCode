@@ -1,0 +1,1 @@
+print("Solve N Code Daily...")
