@@ -5,17 +5,7 @@
 # Problem URL       : https://leetcode.com/problems/valid-sudoku/description/
 
 
-board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
-         ["4", ".", ".", "5", ".", ".", ".", ".", "."],
-         [".", "9", "1", ".", ".", ".", ".", ".", "3"],
-         ["5", ".", ".", ".", "6", ".", ".", ".", "4"],
-         [".", ".", ".", "8", ".", "3", ".", ".", "5"],
-         ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-         [".", ".", ".", ".", ".", ".", "2", ".", "."],
-         [".", ".", ".", "4", "1", "9", ".", ".", "8"],
-         [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
-
-def check_rows():
+def has_row_duplicate(board):
     for row in board:
         row_set = set()
         for element in row:
@@ -27,8 +17,7 @@ def check_rows():
 
     return True
 
-
-def check_columns():
+def has_column_duplicates(board):
     col_length = len(board[0])
     for col in range(col_length):
         col_set = set()
@@ -40,8 +29,7 @@ def check_columns():
             col_set.add(row[col])
     return True
 
-
-def check_box_row():
+def has_duplicate_box(board):
     for box_row in range(0, 9, 3):
         for box_col in range(0, 9, 3):
 
@@ -56,27 +44,17 @@ def check_box_row():
                     box_set.add(element)
     return True
 
+def is_valid_sudoku(board):
+    return has_row_duplicate(board) and has_column_duplicates(board) and has_duplicate_box(board)
 
-def is_valid_sudoku():
-    return check_rows() and check_columns() and check_box_row()
-
-# Workout
-"""
-
-def matrix_traverse_row():
-    print("-" * 50)
-    for row in range(9):
-        for col in range(9):
-            print(col, end=" ")
-        print()
-    print("-" * 50)
-
-def matrix_traverse_col():
-    print("-" * 50)
-    for col in range(9):
-        for row in range(9):
-            print(board[row][col], end=" ")
-        print()
-    print("-" * 50)
-
-"""
+if __name__ == "__main__":
+    sudoku_board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
+                    ["4", ".", ".", "5", ".", ".", ".", ".", "."],
+                    [".", "9", "1", ".", ".", ".", ".", ".", "3"],
+                    ["5", ".", ".", ".", "6", ".", ".", ".", "4"],
+                    [".", ".", ".", "8", ".", "3", ".", ".", "5"],
+                    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+                    [".", ".", ".", ".", ".", ".", "2", ".", "."],
+                    [".", ".", ".", "4", "1", "9", ".", ".", "8"],
+                    [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
+    is_valid_sudoku(sudoku_board)
