@@ -1,3 +1,10 @@
+# Platform          : Leetcode
+# Problem Number    : 21
+# Problem Name      : Merge Two Sorted Lists
+# Problem Topics    : Linked List, Recursion
+# Problem URL       : https://leetcode.com/problems/merge-two-sorted-lists
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
