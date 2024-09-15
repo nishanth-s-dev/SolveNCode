@@ -12,7 +12,9 @@ def valid_parentheses(string):
 
     for letter in string:
         if letter in pairs.keys():
-            if stack and pairs[letter] != stack.pop():
+            if stack and pairs[letter] == stack.pop():
+                continue
+            else:
                 return False
         else:
             stack.append(letter)
