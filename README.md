@@ -1,4 +1,4 @@
-# SolveNCode 🚀
+# 🔥 SolveNCode 🔥
 
 This is my personal repository where I solve coding problems daily using Python3. The goal is to push myself to solve at least one problem every day and track my progress.
 
