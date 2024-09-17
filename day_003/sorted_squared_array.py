@@ -55,5 +55,36 @@ def sorted_squared_array_method_two(array):
 
     return res
 
+
+"""
+Steps:
+1. Set two pointers `start` and `end` at the beginning (index 0) and end (index n-1) of the array, respectively.
+2. Initialize an empty result array `res` to store squared values in the sorted order.
+3. Iterate from the end of the result array towards the start (reverse order):
+    - Get the absolute values of `array[start]` and `array[end]`.
+    - Compare these two absolute values:
+        - If the absolute value at the `end` pointer is greater than or equal to the absolute value at the `start` pointer:
+            - Place the square of the value at `end` in the current index of the result array.
+            - Decrease the `end` pointer by 1.
+        - Else, place the square of the value at `start` in the current index of the result array.
+            - Increase the `start` pointer by 1.
+4. Continue until all indices in the result array are filled.
+5. Return the result array `res`, which now contains the sorted squares of the original array.
+"""
+def sortedSquaredArrayMethodTwoUpdate(array):
+    res = [0 for _ in array]
+    start, end = 0, len(array) - 1
+    for idx in reversed(range(len(array))):
+        start_val = abs(array[start])
+        end_val = abs(array[end])
+        if start_val < end_val:
+            res[idx] = end_val ** 2
+            end -= 1
+        else:
+            res[idx] = start_val ** 2
+            start += 1
+    return res
+
+
 if __name__ == "__main__":
-    print(sorted_squared_array_method_two([-5, -2, 1, 2, 4, 6, 8]))
+    print(sortedSquaredArrayMethodTwoUpdate([1, 2, 3, 5, 6, 8, 9]))
