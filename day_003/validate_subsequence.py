@@ -1,3 +1,10 @@
+# Platform          : AlgoExpert
+# Problem Name      : Validate Subsequence
+# Difficulty        : Easy
+# Category          : Arrays
+# Problem URL       : https://www.algoexpert.io/questions/validate-subsequence
+
+
 # O(n) Time | O(1) space
 def isValidSubsequence(array, sequence):
     idx = 0
