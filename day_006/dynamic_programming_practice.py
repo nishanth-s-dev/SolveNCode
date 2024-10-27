@@ -19,25 +19,28 @@ def gridTraveler(row, col, memo = None):
 
     return memo[key]
 
-def canSum(targetSum, numbers):
+def canSum(targetSum, numbers, memo = None):
+    if memo is None: memo = {}
+
+    if targetSum in memo:
+        return memo[targetSum]
+
     if targetSum == 0:
         return True
     if targetSum < 0:
         return False
 
-    res = False
     for num in numbers:
-        if canSum(targetSum - num, numbers):
-            res = True
-            break
+        if canSum(targetSum - num, numbers, memo):
+            memo[targetSum] = True
+            return True
 
-    return res
+    memo[targetSum] = False
+    return False
 
 
 def main():
-    # print(fib(50))
-    # print(gridTraveler(18, 18))
-    print(canSum(7, [5, 3, 4, 7]))
+    print(canSum(300, [7, 14]))
 
 
 if __name__ == '__main__':
