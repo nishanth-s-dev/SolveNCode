@@ -6,9 +6,21 @@ def fib(n, memo = dict()):
     return memo[n]
 
 
+def gridTraveler(row, col, memo = dict()):
+    if row == 1 and col == 1:
+        return 1
+    if row < 1 or col < 1:
+        return 0
+
+    if (row, col) not in memo:
+        memo[(row, col)] = gridTraveler(row - 1, col, memo) + gridTraveler(row, col - 1, memo)
+
+    return memo[(row, col)]
+
+
 def main():
-    number = int(input("Enter number to find fib: "))
-    print(fib(number))
+    print(gridTraveler(22, 33))
+
 
 if __name__ == '__main__':
     main()
