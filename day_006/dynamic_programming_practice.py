@@ -1,4 +1,5 @@
-def fib(n, memo = dict()):
+def fib(n, memo = None):
+    if memo is None: memo = {}
     if n <= 2: return n
 
     if n not in memo:
@@ -7,7 +8,7 @@ def fib(n, memo = dict()):
 
 
 def gridTraveler(row, col, memo = None):
-    if memo is None: memo = dict()
+    if memo is None: memo = {}
     if row == 1 and col == 1: return 1
     if row < 1 or col < 1: return 0
 
@@ -20,6 +21,7 @@ def gridTraveler(row, col, memo = None):
 
 
 def main():
+    print(fib(50))
     print(gridTraveler(18, 18))
 
 
